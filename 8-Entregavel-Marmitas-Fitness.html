@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Guia de Marmitas Fitness — Seu Material</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1DB954; --green-dark:#0E8F55; --green-light:#DFF7EA; --gray:#F4F4F4;
+    --text:#222; --text-2:#666; --grad-btn:linear-gradient(135deg,#18A957 0%,#38D16A 100%);
+    --radius-lg:20px; --radius-md:14px; --radius-pill:999px;
+    --shadow-card:0 4px 18px -8px rgba(34,34,34,0.08); --shadow-soft:0 10px 30px -16px rgba(14,143,85,0.25);
+    --font-display:'Sora',sans-serif; --font-body:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--gray); font-family:var(--font-body); color:var(--text); padding:0 16px 60px;}
+  h1,h2,h3{font-family:var(--font-display); margin:0;}
+  .wrap{max-width:640px; margin:0 auto;}
+  .hero{position:relative; overflow:hidden; background:var(--grad-btn); border-radius:var(--radius-lg); padding:32px 24px; text-align:center; color:#fff; box-shadow:var(--shadow-soft); margin:20px 0 24px;}
+  .hero::after{content:""; position:absolute; right:-50px; top:-50px; width:200px; height:200px; background:radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);}
+  .hero .ic{font-size:40px; margin-bottom:8px; position:relative; z-index:1;}
+  .hero h1{font-size:22px; font-weight:800; line-height:1.3; position:relative; z-index:1;}
+  .hero p{font-size:13.5px; opacity:.95; margin-top:8px; line-height:1.55; position:relative; z-index:1;}
+  .card{background:#fff; border-radius:var(--radius-md); padding:18px 20px; box-shadow:var(--shadow-card); margin-bottom:14px; border:1px solid #f0f0f0;}
+  .card h2{font-size:15px; color:var(--green-dark); margin-bottom:8px;}
+  .card p, .card li{font-size:13px; line-height:1.6; color:var(--text);}
+  .card ul, .card ol{padding-left:18px; margin:0;}
+  .card li{margin-bottom:7px;}
+  .card b{color:var(--text);}
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{text-align:left; padding:7px 6px; border-bottom:1px solid #eee;}
+  th{color:var(--text-2); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.03em;}
+  .step{display:flex; gap:12px; margin-bottom:14px; align-items:flex-start;}
+  .step .num{flex-shrink:0; width:26px; height:26px; border-radius:50%; background:var(--green-light); color:var(--green-dark); font-weight:800; font-size:12.5px; display:flex; align-items:center; justify-content:center;}
+  .note{background:var(--green-light); border-radius:var(--radius-md); padding:14px 16px; font-size:12.5px; color:var(--green-dark); line-height:1.55; margin-top:6px;}
+  .section-label{font-size:12px; font-weight:800; color:var(--text-2); text-transform:uppercase; letter-spacing:.05em; margin:22px 4px 10px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="ic">🍱</div>
+    <h1>Guia de Marmitas Fitness</h1>
+    <p>Aprenda a montar marmitas equilibradas para manter sua alimentação organizada durante toda a semana, economizando tempo e evitando deslizes.</p>
+  </div>
+
+  <div class="card">
+    <h2>A fórmula da marmita perfeita</h2>
+    <table>
+      <tr><th>Parte do prato</th><th>Proporção</th><th>Exemplos</th></tr>
+      <tr><td>Proteína</td><td>1/4 do prato</td><td>Frango, carne, ovo, peixe</td></tr>
+      <tr><td>Carboidrato</td><td>1/4 do prato</td><td>Arroz, batata-doce, mandioca</td></tr>
+      <tr><td>Vegetais</td><td>1/2 do prato</td><td>Brócolis, cenoura, abobrinha, folhas</td></tr>
+    </table>
+    <div class="note" style="margin-top:12px;">Seguindo essa proporção você já garante uma marmita equilibrada, sem precisar pesar nada.</div>
+  </div>
+
+  <p class="section-label">📦 Passo a passo de preparo</p>
+
+  <div class="card">
+    <div class="step"><div class="num">1</div><p><b>Escolha 2-3 proteínas</b> para revezar na semana (ex: frango, carne moída, ovo).</p></div>
+    <div class="step"><div class="num">2</div><p><b>Cozinhe em maior quantidade</b> — prepare o suficiente para 4-5 marmitas de uma vez só.</p></div>
+    <div class="step"><div class="num">3</div><p><b>Monte as marmitas ainda mornas</b> — isso evita condensação de água na tampa (o que estraga mais rápido).</p></div>
+    <div class="step"><div class="num">4</div><p><b>Congele o que não for consumir em até 3 dias</b> e deixe na geladeira só as próximas 2-3 marmitas.</p></div>
+  </div>
+
+  <p class="section-label">🍽️ 5 combinações prontas</p>
+
+  <div class="card">
+    <p><b>1.</b> Frango grelhado + arroz integral + brócolis e cenoura no vapor</p>
+    <p style="margin-top:10px;"><b>2.</b> Carne moída refogada + batata-doce + vagem salteada</p>
+    <p style="margin-top:10px;"><b>3.</b> Peixe assado + arroz + mix de legumes coloridos</p>
+    <p style="margin-top:10px;"><b>4.</b> Frango desfiado + mandioca cozida + couve refogada</p>
+    <p style="margin-top:10px;"><b>5.</b> Omelete de forno com legumes + arroz integral</p>
+  </div>
+
+  <p class="section-label">🧊 Conservação</p>
+
+  <div class="card">
+    <ul>
+      <li>Geladeira: até 3 dias em recipiente bem fechado</li>
+      <li>Freezer: até 3 meses (evite congelar batata cozida — a textura muda)</li>
+      <li>Para esquentar: retire do freezer para a geladeira na noite anterior, depois aqueça normalmente</li>
+      <li>Use potes de vidro ou plástico livre de BPA, sempre com boa vedação</li>
+    </ul>
+  </div>
+
+  <div class="note">Dica final: reserve 1h30 a 2h no seu dia de folga pra deixar a semana toda organizada — esse é o verdadeiro segredo de quem consegue manter a rotina alimentar mesmo com pouco tempo.</div>
+
+</div>
+</body>
+</html>

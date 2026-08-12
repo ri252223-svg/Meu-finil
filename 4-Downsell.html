@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Espera! Oferta Especial — Protocolo Queima Contínua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --white:#FFFFFF;
+    --green:#1DB954;
+    --green-dark:#0E8F55;
+    --green-light:#DFF7EA;
+    --gray:#F4F4F4;
+    --text:#222222;
+    --text-2:#666666;
+    --red:#E63946;
+    --red-dark:#C0392B;
+    --red-light:#FDECEC;
+    --grad-btn: linear-gradient(135deg, #18A957 0%, #38D16A 100%);
+    --grad-red: linear-gradient(135deg, #E63946 0%, #FF6B6B 100%);
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+    --radius-pill:999px;
+    --shadow-soft: 0 10px 30px -16px rgba(14,143,85,0.25);
+    --shadow-card: 0 4px 18px -8px rgba(34,34,34,0.08);
+    --font-display:'Sora', sans-serif;
+    --font-body:'Inter', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0; width:100%; max-width:100%; overflow-x:hidden; background:var(--gray);}
+  body{
+    font-family:var(--font-body);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    padding:0 16px 60px;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display); color:var(--text); margin:0;}
+  p{margin:0;}
+  button{font-family:inherit; cursor:pointer;}
+
+  .ds-inner{max-width:560px; margin:0 auto;}
+
+  /* Sticky urgency bar at very top */
+  .ds-sticky-bar{
+    position:sticky; top:0; z-index:50; margin:0 -16px 18px;
+    background:var(--grad-red); color:#fff; text-align:center;
+    padding:10px 16px; font-size:12.5px; font-weight:800;
+    letter-spacing:.02em; box-shadow:0 6px 16px -8px rgba(198,57,57,0.5);
+  }
+  .ds-sticky-bar b{font-family:var(--font-display);}
+
+  .ds-header{
+    position:relative; overflow:hidden;
+    background:linear-gradient(135deg, #C0392B 0%, #E63946 100%);
+    border-radius:var(--radius-lg); padding:32px 24px; text-align:center;
+    color:#fff; box-shadow:0 10px 30px -16px rgba(198,57,57,0.45); margin-bottom:20px;
+  }
+  .ds-header::after{
+    content:""; position:absolute; right:-50px; top:-50px; width:200px; height:200px;
+    background:radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+  }
+  .ds-header .ic{font-size:40px; margin-bottom:8px; position:relative; z-index:1;}
+  .ds-header h1{font-size:23px; font-weight:800; margin-bottom:10px; position:relative; z-index:1; line-height:1.3;}
+  .ds-header p{font-size:14.5px; opacity:.95; line-height:1.55; position:relative; z-index:1; max-width:480px; margin:0 auto;}
+
+  .ds-card{
+    background:#fff; border-radius:var(--radius-lg); padding:26px 22px;
+    box-shadow:var(--shadow-card); border:1px solid #f0f0f0; margin-bottom:20px;
+  }
+
+  .ds-empathy p{font-size:14.5px; color:var(--text); line-height:1.65; text-align:center;}
+  .ds-empathy p + p{margin-top:12px;}
+  .ds-empathy b{color:var(--green-dark);}
+
+  .ds-offer-title{text-align:center; margin:6px 0 18px;}
+  .ds-offer-eyebrow{
+    display:inline-block; background:var(--red-light); color:var(--red-dark);
+    font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:.06em;
+    padding:6px 14px; border-radius:var(--radius-pill); margin-bottom:12px;
+  }
+  .ds-offer-title h2{font-size:21px; line-height:1.35;}
+
+  .ds-benefits-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .ds-benefits-list li{
+    display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--text); line-height:1.45;
+  }
+  .ds-benefits-list .check{
+    flex-shrink:0; width:20px; height:20px; border-radius:50%;
+    background:var(--green-light); color:var(--green-dark);
+    font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center;
+    margin-top:1px;
+  }
+  .ds-benefits-list .new-tag{
+    display:inline-block; background:var(--red); color:#fff; font-size:9.5px; font-weight:800;
+    padding:2px 6px; border-radius:6px; margin-left:6px; vertical-align:middle; letter-spacing:.03em;
+  }
+
+  .ds-urgency-bar{
+    background:#FFF3F3; border:1.5px solid #F7C2C2; border-radius:var(--radius-md);
+    padding:16px 18px; text-align:center; margin:6px 0 20px;
+    box-shadow:var(--shadow-card);
+  }
+  .ds-urgency-bar .flag{font-size:12px; font-weight:800; color:var(--red-dark); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px;}
+  .ds-urgency-bar .msg{font-size:13.5px; font-weight:700; color:var(--text); line-height:1.5; animation:blinkUrgency 1.6s ease-in-out infinite;}
+  @keyframes blinkUrgency{
+    0%, 100%{ color:var(--red-dark); }
+    50%{ color:var(--red); }
+  }
+
+  .ds-stack{
+    background:#fff; border-radius:var(--radius-lg); padding:28px 22px;
+    box-shadow:var(--shadow-card); border:2px solid var(--red); margin:0 0 16px; text-align:center;
+    position:relative;
+  }
+  .ds-stack-badge{
+    position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+    background:var(--grad-red); color:#fff; font-size:11.5px; font-weight:800;
+    padding:6px 16px; border-radius:var(--radius-pill); white-space:nowrap;
+    box-shadow:0 6px 14px -6px rgba(198,57,57,0.5);
+  }
+  .ds-stack-name{font-size:15.5px; font-weight:700; color:var(--text); margin:10px 0 14px;}
+  .ds-stack-list{display:flex; flex-direction:column; gap:9px; text-align:left; margin-bottom:16px;}
+  .ds-stack-row{display:flex; align-items:baseline; gap:6px; font-size:13.5px; color:var(--text-2);}
+  .ds-stack-row .dots{flex:1; border-bottom:1px dotted #ddd; height:0; position:relative; top:-4px;}
+  .ds-stack-row .val{font-weight:700; color:var(--text); white-space:nowrap;}
+  .ds-stack-divider{border-top:1px dashed #e4e4e4; margin:14px 0;}
+  .ds-total-label{font-size:12px; font-weight:800; color:var(--text-2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px;}
+  .ds-price-old{font-size:16px; color:#bbb; text-decoration:line-through; margin-bottom:2px;}
+  .ds-price-for{font-size:12.5px; font-weight:700; color:var(--red-dark); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px;}
+  .ds-price{
+    font-family:var(--font-display); font-weight:800; color:var(--red-dark);
+    font-size:48px; line-height:1;
+  }
+  .ds-price span{font-size:20px; vertical-align:top;}
+  .ds-price-invest{
+    font-size:12.5px; color:var(--text-2); line-height:1.5; margin-top:8px;
+  }
+  .ds-price-invest b{color:var(--red-dark); font-weight:800;}
+
+  .ds-cta-btn{
+    display:block; width:100%; border:none; border-radius:var(--radius-pill);
+    background:var(--grad-red); color:#fff; font-weight:800; font-size:17px;
+    padding:20px 24px; box-shadow:0 14px 28px -12px rgba(198,57,57,0.55);
+    margin-bottom:10px;
+    transition:transform .18s ease, box-shadow .18s ease;
+    animation:pulseBtn 1.4s ease-in-out infinite;
+  }
+  .ds-cta-btn:hover{transform:translateY(-2px) scale(1.01); box-shadow:0 18px 34px -12px rgba(198,57,57,0.65);}
+  .ds-cta-btn:active{transform:translateY(0) scale(0.99);}
+  @keyframes pulseBtn{
+    0%, 100%{ transform:scale(1); }
+    50%{ transform:scale(1.015); }
+  }
+  .ds-cta-note{
+    text-align:center; font-size:12.5px; color:var(--text-2); font-weight:700; line-height:1.6;
+    margin-bottom:4px;
+  }
+
+  .ds-guarantee{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--green-light); border-radius:var(--radius-md); padding:16px 18px;
+    margin:20px 0;
+  }
+  .ds-guarantee .ic{font-size:24px; flex-shrink:0;}
+  .ds-guarantee p{font-size:13px; color:var(--green-dark); line-height:1.55; font-weight:600;}
+  .ds-guarantee b{font-weight:800;}
+
+  .ds-decline{
+    display:block; width:100%; text-align:center; font-size:13px; color:var(--text-2);
+    text-decoration:underline; background:none; border:none; margin:8px auto 0; padding:6px;
+    transition:color .18s ease;
+  }
+  .ds-decline:hover{color:var(--text);}
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .ds-header, .ds-card, .ds-urgency-bar, .ds-stack{
+    animation:fadeUp .6s ease both;
+  }
+  .ds-card{animation-delay:.08s;}
+  .ds-urgency-bar{animation-delay:.14s;}
+  .ds-stack{animation-delay:.2s;}
+
+  @media (max-width:600px){
+    .ds-price{font-size:42px;}
+    .ds-header h1{font-size:20px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="ds-inner">
+
+    <div class="ds-sticky-bar">⏳ <b>Oferta exclusiva</b> — some se você sair desta página</div>
+
+    <div class="ds-header">
+      <div class="ic">🚨</div>
+      <h1>Espera! Você está prestes a perder uma condição que não vai se repetir.</h1>
+      <p>Antes de você sair, liberamos uma exceção especial — só para quem chegou até aqui.</p>
+    </div>
+
+    <div class="ds-card ds-empathy">
+      <p>A gente entende. Talvez o valor não tenha cabido agora, ou você só precisava de mais um empurrão.</p>
+      <p>Por isso, <b>abrimos uma condição única</b> que não aparece em nenhum outro lugar do site — e não vai aparecer de novo depois que você sair.</p>
+    </div>
+
+    <div class="ds-offer-title">
+      <span class="ds-offer-eyebrow">🔓 Acesso liberado por tempo limitado</span>
+      <h2>Leve o Protocolo Queima Contínua com <span style="color:var(--red-dark);">até 60% OFF</span> e ainda mais bônus</h2>
+    </div>
+
+    <div class="ds-card">
+      <ul class="ds-benefits-list">
+        <li><span class="check">✓</span> Protocolo completo Queima Contínua — o mesmo plano da oferta anterior</li>
+        <li><span class="check">✓</span> Cardápio flexível de 30 dias, adaptado ao seu ritmo</li>
+        <li><span class="check">✓</span> Acesso imediato, direto no seu celular</li>
+        <li><span class="check">✓</span> Bônus: Guia Anti-Sabotagem<span class="new-tag">NOVO</span> — para os dias difíceis</li>
+        <li><span class="check">✓</span> Bônus: Planilha de Progresso Visual<span class="new-tag">NOVO</span></li>
+        <li><span class="check">✓</span> Bônus: Grupo de suporte com outras mulheres do desafio<span class="new-tag">NOVO</span></li>
+        <li><span class="check">✓</span> Garantia incondicional de 7 dias</li>
+      </ul>
+    </div>
+
+    <div class="ds-urgency-bar">
+      <div class="flag">⚠️ Atenção</div>
+      <div class="msg">Essa condição especial não volta a aparecer. Se você fechar ou sair desta página, ela desaparece — e o valor volta ao normal.</div>
+    </div>
+
+    <div class="ds-stack">
+      <div class="ds-stack-badge">🔥 SÓ NESTA PÁGINA</div>
+      <div class="ds-stack-name">Protocolo Queima Contínua + Bônus Exclusivos</div>
+      <div class="ds-stack-list">
+        <div class="ds-stack-row"><span>Protocolo Queima Contínua</span><span class="dots"></span><span class="val">R$ 97</span></div>
+        <div class="ds-stack-row"><span>Guia Anti-Sabotagem</span><span class="dots"></span><span class="val">R$ 37</span></div>
+        <div class="ds-stack-row"><span>Planilha de Progresso Visual</span><span class="dots"></span><span class="val">R$ 27</span></div>
+        <div class="ds-stack-row"><span>Grupo de Suporte</span><span class="dots"></span><span class="val">R$ 47</span></div>
+      </div>
+      <div class="ds-stack-divider"></div>
+      <div class="ds-total-label">Valor total</div>
+      <div class="ds-price-old">R$ 208</div>
+      <div class="ds-price-for">Hoje, só nesta página</div>
+      <div class="ds-price">R$ 27<span>,90</span></div>
+      <div class="ds-price-invest">Pagamento único · <b>menos de R$ 1 por dia</b> pelo protocolo completo</div>
+    </div>
+
+    <button class="ds-cta-btn" type="button" onclick="window.location.href='https://pay.kirvano.com/62a9819e-a3d8-4e5b-8ca3-c02327dfa294'">
+      🔥 SIM! QUERO GARANTIR COM DESCONTO
+    </button>
+    <p class="ds-cta-note">✔ Acesso imediato &nbsp;·&nbsp; ✔ Pagamento único &nbsp;·&nbsp; ✔ Garantia de 7 dias</p>
+
+    <div class="ds-guarantee">
+      <div class="ic">🛡️</div>
+      <p><b>Garantia de 7 dias.</b> Se por qualquer motivo você não gostar, devolvemos 100% do seu dinheiro — sem perguntas.</p>
+    </div>
+
+    <button class="ds-decline" type="button">Não, prefiro pagar o valor cheio depois (se essa oferta ainda existir).</button>
+
+  </div>
+
+</body>
+</html>

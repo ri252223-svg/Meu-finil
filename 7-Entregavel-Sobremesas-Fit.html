@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sobremesas Fit — Seu Material</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#1DB954; --green-dark:#0E8F55; --green-light:#DFF7EA; --gray:#F4F4F4;
+    --text:#222; --text-2:#666; --grad-btn:linear-gradient(135deg,#18A957 0%,#38D16A 100%);
+    --radius-lg:20px; --radius-md:14px; --radius-pill:999px;
+    --shadow-card:0 4px 18px -8px rgba(34,34,34,0.08); --shadow-soft:0 10px 30px -16px rgba(14,143,85,0.25);
+    --font-display:'Sora',sans-serif; --font-body:'Inter',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--gray); font-family:var(--font-body); color:var(--text); padding:0 16px 60px;}
+  h1,h2,h3{font-family:var(--font-display); margin:0;}
+  .wrap{max-width:640px; margin:0 auto;}
+  .hero{position:relative; overflow:hidden; background:var(--grad-btn); border-radius:var(--radius-lg); padding:32px 24px; text-align:center; color:#fff; box-shadow:var(--shadow-soft); margin:20px 0 24px;}
+  .hero::after{content:""; position:absolute; right:-50px; top:-50px; width:200px; height:200px; background:radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);}
+  .hero .ic{font-size:40px; margin-bottom:8px; position:relative; z-index:1;}
+  .hero h1{font-size:22px; font-weight:800; line-height:1.3; position:relative; z-index:1;}
+  .hero p{font-size:13.5px; opacity:.95; margin-top:8px; line-height:1.55; position:relative; z-index:1;}
+  .card{background:#fff; border-radius:var(--radius-md); padding:18px 20px; box-shadow:var(--shadow-card); margin-bottom:14px; border:1px solid #f0f0f0;}
+  .card h2{font-size:15px; color:var(--green-dark); margin-bottom:8px;}
+  .card p{font-size:13px; line-height:1.6; color:var(--text);}
+  .card b{color:var(--text);}
+  .recipe .time{display:inline-block; background:var(--green-light); color:var(--green-dark); font-size:10.5px; font-weight:800; padding:3px 10px; border-radius:var(--radius-pill); margin-bottom:8px;}
+  .note{background:var(--green-light); border-radius:var(--radius-md); padding:14px 16px; font-size:12.5px; color:var(--green-dark); line-height:1.55; margin-top:6px;}
+  .section-label{font-size:12px; font-weight:800; color:var(--text-2); text-transform:uppercase; letter-spacing:.05em; margin:22px 4px 10px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="ic">🍰</div>
+    <h1>Sobremesas Fit</h1>
+    <p>Receitas doces com baixo teor calórico para matar a vontade de comer doce sem sair da rotina alimentar.</p>
+  </div>
+
+  <div class="card">
+    <h2>Como usar essas receitas</h2>
+    <p>Mesmo "fit", toda sobremesa tem calorias. A ideia aqui não é comer sem limite, e sim ter uma opção melhor que os doces tradicionais para os momentos em que a vontade aparecer.</p>
+  </div>
+
+  <p class="section-label">🍫 Chocolate</p>
+
+  <div class="card recipe">
+    <h2>Brownie fit de caneca</h2>
+    <div class="time">⏱ 5 min</div>
+    <p><b>Ingredientes:</b> 2 colheres de aveia em flocos finos, 1 colher de cacau em pó, 1 banana amassada, 1 ovo.</p>
+    <p><b>Modo de preparo:</b> Misture tudo numa caneca, leve ao micro-ondas por 1min30 a 2 minutos. Deixe amornar antes de comer.</p>
+  </div>
+
+  <div class="card recipe">
+    <h2>Trufa de cacau e tâmara</h2>
+    <div class="time">⏱ 15 min</div>
+    <p><b>Ingredientes:</b> Tâmaras sem caroço, cacau em pó, castanha-do-pará triturada.</p>
+    <p><b>Modo de preparo:</b> Bata as tâmaras com um pouco de água até formar uma pasta, misture o cacau, enrole em bolinhas e passe na castanha triturada.</p>
+  </div>
+
+  <p class="section-label">🍓 Frutas</p>
+
+  <div class="card recipe">
+    <h2>Morango ao chocolate fit</h2>
+    <div class="time">⏱ 10 min</div>
+    <p><b>Ingredientes:</b> Morangos, chocolate 70% derretido.</p>
+    <p><b>Modo de preparo:</b> Derreta o chocolate em banho-maria, mergulhe os morangos, leve à geladeira por 15 minutos até endurecer.</p>
+  </div>
+
+  <div class="card recipe">
+    <h2>Banana caramelizada com canela</h2>
+    <div class="time">⏱ 8 min</div>
+    <p><b>Ingredientes:</b> Banana em rodelas, canela em pó, um fio de mel.</p>
+    <p><b>Modo de preparo:</b> Grelhe a banana numa frigideira antiaderente até dourar, polvilhe canela e finalize com o mel.</p>
+  </div>
+
+  <p class="section-label">🥧 Cremosos e assados</p>
+
+  <div class="card recipe">
+    <h2>Cheesecake fit de ricota</h2>
+    <div class="time">⏱ 40 min</div>
+    <p><b>Ingredientes:</b> Ricota, iogurte natural, ovos, adoçante culinário, essência de baunilha.</p>
+    <p><b>Modo de preparo:</b> Bata todos os ingredientes no liquidificador, despeje numa forma, asse a 180°C por 30-35 minutos. Deixe esfriar antes de desenformar.</p>
+  </div>
+
+  <div class="card recipe">
+    <h2>Pudim de chia com leite de coco</h2>
+    <div class="time">⏱ 5 min + descanso</div>
+    <p><b>Ingredientes:</b> Chia, leite de coco, adoçante a gosto.</p>
+    <p><b>Modo de preparo:</b> Misture tudo e leve à geladeira por no mínimo 3 horas antes de servir.</p>
+  </div>
+
+  <div class="card recipe">
+    <h2>Bolo de caneca de cenoura</h2>
+    <div class="time">⏱ 5 min</div>
+    <p><b>Ingredientes:</b> Cenoura ralada, 1 ovo, 2 colheres de aveia, canela, adoçante a gosto.</p>
+    <p><b>Modo de preparo:</b> Misture tudo bem numa caneca, leve ao micro-ondas por 2 minutos.</p>
+  </div>
+
+  <div class="note">Dica: guarde porções pequenas em potinhos individuais no congelador — assim você sempre tem uma opção pronta e não come além da porção planejada.</div>
+
+</div>
+</body>
+</html>

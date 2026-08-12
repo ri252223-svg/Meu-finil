@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Seus Materiais — Protocolo Queima Contínua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light only;
+    --white:#FFFFFF; --green:#1DB954; --green-dark:#0E8F55; --green-light:#DFF7EA;
+    --gray:#F4F4F4; --text:#222222; --text-2:#666666;
+    --grad-btn: linear-gradient(135deg, #18A957 0%, #38D16A 100%);
+    --radius-lg:20px; --radius-md:14px; --radius-sm:10px; --radius-pill:999px;
+    --shadow-soft: 0 10px 30px -16px rgba(14,143,85,0.25);
+    --shadow-card: 0 4px 18px -8px rgba(34,34,34,0.08);
+    --font-display:'Sora', sans-serif; --font-body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html,body{margin:0; padding:0; width:100%; max-width:100%; overflow-x:hidden; background:var(--gray);}
+  body{font-family:var(--font-body); color:var(--text); -webkit-font-smoothing:antialiased; padding:0 16px 60px;}
+  h1,h2,h3,.display{font-family:var(--font-display); color:var(--text); margin:0;}
+  p{margin:0;}
+  button,a.dl-btn{font-family:inherit; cursor:pointer;}
+  .wrap{max-width:640px; margin:0 auto;}
+
+  /* HERO */
+  .dl-header{
+    position:relative; overflow:hidden; background:var(--grad-btn);
+    border-radius:var(--radius-lg); padding:34px 24px 30px; text-align:center;
+    color:#fff; box-shadow:var(--shadow-soft); margin:20px 0 24px;
+  }
+  .dl-header::after{
+    content:""; position:absolute; right:-50px; top:-50px; width:200px; height:200px;
+    background:radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+  }
+  .dl-header .ic{font-size:42px; margin-bottom:10px; position:relative; z-index:1;}
+  .dl-header h1{font-size:23px; font-weight:800; margin-bottom:10px; position:relative; z-index:1; line-height:1.3;}
+  .dl-header p{font-size:14px; opacity:.95; line-height:1.55; position:relative; z-index:1; max-width:460px; margin:0 auto;}
+
+  .dl-section-title{
+    font-size:13px; font-weight:800; color:var(--text-2); text-transform:uppercase;
+    letter-spacing:.06em; margin:0 4px 12px;
+  }
+
+  /* QUICK NAV GRID */
+  .dl-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:36px;}
+  .dl-card{
+    background:#fff; border-radius:var(--radius-md); padding:18px 16px;
+    box-shadow:var(--shadow-card); border:1px solid #f0f0f0;
+    display:flex; flex-direction:column; gap:10px; text-decoration:none; color:inherit;
+  }
+  .dl-card .ic{
+    width:44px; height:44px; border-radius:12px; background:var(--green-light);
+    display:flex; align-items:center; justify-content:center; font-size:21px;
+  }
+  .dl-card h3{font-size:14px; font-weight:700; line-height:1.35; color:var(--text);}
+  .dl-card p{font-size:12px; color:var(--text-2); line-height:1.5; flex:1;}
+  .dl-card .dl-btn{
+    border:none; border-radius:var(--radius-pill); background:var(--grad-btn); color:#fff;
+    font-weight:700; font-size:12.5px; padding:11px 14px; width:100%;
+    display:flex; align-items:center; justify-content:center; gap:6px; text-decoration:none;
+  }
+
+  /* PRODUCT SECTIONS */
+  .product-section{scroll-margin-top:18px; margin-bottom:10px;}
+  .product-hero{
+    background:var(--grad-btn); border-radius:var(--radius-lg); padding:26px 22px; color:#fff; margin-bottom:16px;
+  }
+  .product-hero .ic{font-size:32px; margin-bottom:8px;}
+  .product-hero h2{font-size:19px; font-weight:800; line-height:1.3;}
+  .product-hero p{font-size:13px; opacity:.95; margin-top:8px; line-height:1.5;}
+
+  .card{background:#fff; border-radius:var(--radius-md); padding:18px 20px; box-shadow:var(--shadow-card); margin-bottom:14px; border:1px solid #f0f0f0;}
+  .card h3.ct{font-size:15px; color:var(--green-dark); margin-bottom:8px;}
+  .card p, .card li{font-size:13px; line-height:1.62; color:var(--text);}
+  .card ul, .card ol{padding-left:18px; margin:0;}
+  .card li{margin-bottom:7px;}
+  .card b{color:var(--text);}
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{text-align:left; padding:7px 6px; border-bottom:1px solid #eee;}
+  th{color:var(--text-2); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.03em;}
+  .tag{display:inline-block; background:var(--green-light); color:var(--green-dark); font-size:11px; font-weight:800; padding:4px 10px; border-radius:var(--radius-pill); margin-bottom:8px;}
+  .note{background:var(--green-light); border-radius:var(--radius-md); padding:14px 16px; font-size:12.5px; color:var(--green-dark); line-height:1.55; margin-top:2px;}
+  .step{display:flex; gap:12px; margin-bottom:14px; align-items:flex-start;}
+  .step .num{flex-shrink:0; width:26px; height:26px; border-radius:50%; background:var(--green-light); color:var(--green-dark); font-weight:800; font-size:12.5px; display:flex; align-items:center; justify-content:center;}
+  .day-card h3.ct{font-size:14.5px;}
+  .meal{display:flex; gap:10px; padding:8px 0; border-bottom:1px solid #f2f2f2; font-size:12.5px;}
+  .meal:last-child{border-bottom:none;}
+  .meal .label{flex-shrink:0; width:82px; font-weight:800; color:var(--text-2); font-size:11px; text-transform:uppercase; letter-spacing:.02em; padding-top:1px;}
+  .items{display:flex; flex-wrap:wrap; gap:8px;}
+  .item{background:var(--green-light); color:var(--green-dark); font-size:12px; font-weight:600; padding:6px 12px; border-radius:var(--radius-pill);}
+  .recipe .time{display:inline-block; background:var(--green-light); color:var(--green-dark); font-size:10.5px; font-weight:800; padding:3px 10px; border-radius:var(--radius-pill); margin-bottom:8px;}
+  .recipe .sub{font-size:11px; color:var(--text-2); font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px;}
+
+  .back-top{
+    display:inline-block; margin:4px 0 32px; font-size:12.5px; font-weight:700; color:var(--green-dark); text-decoration:none;
+  }
+
+  .divider{border:none; border-top:2px dashed #e2e2e2; margin:0 0 30px;}
+
+  .dl-support{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--green-light); border-radius:var(--radius-md); padding:16px 18px; margin:24px 0 10px;
+  }
+  .dl-support .ic{font-size:22px; flex-shrink:0;}
+  .dl-support p{font-size:13px; color:var(--green-dark); line-height:1.55; font-weight:600;}
+  .dl-support b{font-weight:800;}
+
+  @media (max-width:520px){
+    .dl-grid{grid-template-columns:1fr;}
+    .dl-header h1{font-size:20px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap" id="topo">
+
+    <div class="dl-header">
+      <div class="ic">🎉</div>
+      <h1>Sua compra foi confirmada!</h1>
+      <p>Todo o conteúdo do Protocolo Queima Contínua já está liberado abaixo, tudo em uma página só. Toque em qualquer material para ir direto até ele.</p>
+    </div>
+
+    <p class="dl-section-title">Seus 8 materiais liberados</p>
+
+    <div class="dl-grid">
+      <a class="dl-card" href="#plano-continuacao">
+        <div class="ic">📋</div>
+        <h3>Plano Alimentar de Continuação</h3>
+        <p>Dê sequência aos seus resultados com um plano estruturado para as próximas semanas.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+      <a class="dl-card" href="#anti-sanfona">
+        <div class="ic">🔄</div>
+        <h3>Estratégia Anti Efeito Sanfona</h3>
+        <p>Técnicas para manter o peso perdido e evitar o reganho depois do desafio.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+      <a class="dl-card" href="#cardapios">
+        <div class="ic">🍽️</div>
+        <h3>Cardápios Inteligentes</h3>
+        <p>Combinações prontas de refeições equilibradas, fáceis de seguir no dia a dia.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+      <a class="dl-card" href="#lista-compras">
+        <div class="ic">🛒</div>
+        <h3>Lista Inteligente de Compras</h3>
+        <p>Saiba exatamente o que comprar no mercado, sem desperdício e sem esquecer nada.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+      <a class="dl-card" href="#controlar-fome">
+        <div class="ic">🍲</div>
+        <h3>Receitas para Controlar a Fome</h3>
+        <p>Pratos que dão saciedade de verdade, para você não beliscar fora de hora.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+      <a class="dl-card" href="#receitas-express">
+        <div class="ic">⚡</div>
+        <h3>Receitas Express</h3>
+        <p>Refeições saudáveis prontas em poucos minutos, para os dias mais corridos.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+      <a class="dl-card" href="#doces-fit">
+        <div class="ic">🍫</div>
+        <h3>Doces Fit</h3>
+        <p>Sobremesas com baixo teor calórico para matar a vontade de doce sem culpa.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+      <a class="dl-card" href="#organizacao">
+        <div class="ic">🗂️</div>
+        <h3>Organização Alimentar</h3>
+        <p>Um sistema simples para planejar suas refeições da semana com antecedência.</p>
+        <span class="dl-btn">Acessar material</span>
+      </a>
+    </div>
+
+    <!-- ========== 1. PLANO ALIMENTAR DE CONTINUAÇÃO ========== -->
+    <div class="product-section" id="plano-continuacao">
+      <div class="product-hero">
+        <div class="ic">📋</div>
+        <h2>Plano Alimentar de Continuação</h2>
+        <p>Agora que você já emagreceu nos primeiros dias, este plano existe para você manter o ritmo — sem sofrimento e sem voltar ao ponto de partida.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">Como usar</span>
+        <h3 class="ct">A lógica da continuação</h3>
+        <p>Nos primeiros dias o corpo responde rápido. Agora o objetivo muda: não é mais "perder rápido", é <b>consolidar</b>. Isso significa comer o suficiente pra manter energia, sem exagerar, e manter a rotina simples o bastante pra virar hábito.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">Estrutura do seu dia</h3>
+        <table>
+          <tr><th>Refeição</th><th>O que priorizar</th></tr>
+          <tr><td>Café da manhã</td><td>Proteína + fruta (ex: ovos ou iogurte + fruta)</td></tr>
+          <tr><td>Almoço</td><td>Proteína + vegetais + carboidrato de qualidade (arroz, batata-doce, mandioca)</td></tr>
+          <tr><td>Lanche da tarde</td><td>Proteína leve ou oleaginosas (evita beliscar à noite)</td></tr>
+          <tr><td>Jantar</td><td>Semelhante ao almoço, porção um pouco menor</td></tr>
+        </table>
+        <div class="note" style="margin-top:12px;">Beba água ao longo do dia e priorize refeições com vegetais em pelo menos 2 das 3 principais refeições.</div>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">Regras simples para manter o resultado</h3>
+        <ul>
+          <li>Coma devagar e preste atenção à saciedade — pare quando estiver satisfeita, não "cheia".</li>
+          <li>Mantenha proteína em todas as refeições principais (carnes, ovos, iogurte, leguminosas).</li>
+          <li>Não corte grupos alimentares inteiros — isso é o que mais gera efeito sanfona depois.</li>
+          <li>Permita-se 1 refeição livre por semana, sem culpa — isso ajuda a manter a consistência a longo prazo.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">Aviso importante</h3>
+        <p>Este material tem caráter educativo e geral. Se você tem alguma condição de saúde específica ou objetivo particular, o ideal é ajustar esse plano com o acompanhamento de um nutricionista.</p>
+      </div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+    <hr class="divider">
+
+    <!-- ========== 2. ESTRATÉGIA ANTI EFEITO SANFONA ========== -->
+    <div class="product-section" id="anti-sanfona">
+      <div class="product-hero">
+        <div class="ic">🔄</div>
+        <h2>Estratégia Anti Efeito Sanfona</h2>
+        <p>O maior risco depois de emagrecer não é parar de perder peso — é recuperar tudo de volta. Aqui está o passo a passo para não deixar isso acontecer.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">Por que o efeito sanfona acontece</h3>
+        <p>Na maioria dos casos, o reganho de peso não é "falta de força de vontade" — é consequência de dietas muito restritivas que não são sustentáveis a longo prazo. Quando a pessoa volta a comer normalmente, o peso volta junto, muitas vezes vindo com juros.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">Os 4 pilares para não reganhar peso</h3>
+        <div class="step"><div class="num">1</div><p><b>Transição gradual, nunca abrupta.</b> Depois de qualquer fase mais restrita, aumente as porções aos poucos ao longo de 1-2 semanas — não volte a comer "tudo" de uma vez.</p></div>
+        <div class="step"><div class="num">2</div><p><b>Mantenha o hábito, não a dieta.</b> Dietas têm fim. Hábitos não. Foque em manter 2 a 3 hábitos simples (ex: proteína no café da manhã, água antes das refeições) em vez de seguir um plano rígido para sempre.</p></div>
+        <div class="step"><div class="num">3</div><p><b>Monitore sem obsessão.</b> Pese-se ou meça-se 1x por semana, no mesmo dia e horário. Se notar uma variação de 2kg+ pra cima, ajuste a semana seguinte — não espere o mês inteiro passar.</p></div>
+        <div class="step"><div class="num">4</div><p><b>Tenha uma "rede de segurança".</b> Defina com antecedência o que você vai fazer em datas comemorativas ou períodos fora da rotina (viagens, festas) — assim você não é pega de surpresa.</p></div>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">Sinais de alerta para ficar de olho</h3>
+        <ul>
+          <li>Voltar a pular refeições e depois comer em excesso à noite</li>
+          <li>Parar de beber água regularmente</li>
+          <li>Reduzir movimento no dia a dia (não precisa ser academia — caminhar já ajuda)</li>
+          <li>Deixar de dormir o suficiente (sono ruim está diretamente ligado ao ganho de peso)</li>
+        </ul>
+        <div class="note">Regra prática: se 2 desses sinais aparecerem juntos por mais de 5 dias seguidos, é hora de retomar as rotinas do protocolo por uma semana.</div>
+      </div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+    <hr class="divider">
+
+    <!-- ========== 3. CARDÁPIOS INTELIGENTES ========== -->
+    <div class="product-section" id="cardapios">
+      <div class="product-hero">
+        <div class="ic">🍽️</div>
+        <h2>Cardápios Inteligentes</h2>
+        <p>Combinações prontas, práticas e balanceadas — só escolher o dia e seguir. Adapte as porções conforme sua fome e rotina.</p>
+      </div>
+
+      <div class="card day-card">
+        <h3 class="ct">Dia 1</h3>
+        <div class="meal"><span class="label">Café</span><span class="desc">Ovos mexidos + 1 fatia de pão integral + fruta</span></div>
+        <div class="meal"><span class="label">Almoço</span><span class="desc">Frango grelhado + arroz + feijão + salada crua</span></div>
+        <div class="meal"><span class="label">Lanche</span><span class="desc">Iogurte natural + granola</span></div>
+        <div class="meal"><span class="label">Jantar</span><span class="desc">Omelete de legumes + salada verde</span></div>
+      </div>
+      <div class="card day-card">
+        <h3 class="ct">Dia 2</h3>
+        <div class="meal"><span class="label">Café</span><span class="desc">Vitamina de banana com aveia e leite</span></div>
+        <div class="meal"><span class="label">Almoço</span><span class="desc">Carne moída + batata-doce + brócolis</span></div>
+        <div class="meal"><span class="label">Lanche</span><span class="desc">Mix de castanhas + 1 fruta</span></div>
+        <div class="meal"><span class="label">Jantar</span><span class="desc">Sopa de legumes com frango desfiado</span></div>
+      </div>
+      <div class="card day-card">
+        <h3 class="ct">Dia 3</h3>
+        <div class="meal"><span class="label">Café</span><span class="desc">Tapioca com queijo branco + café</span></div>
+        <div class="meal"><span class="label">Almoço</span><span class="desc">Peixe assado + arroz integral + legumes salteados</span></div>
+        <div class="meal"><span class="label">Lanche</span><span class="desc">Queijo cottage + torrada integral</span></div>
+        <div class="meal"><span class="label">Jantar</span><span class="desc">Wrap integral de frango com salada</span></div>
+      </div>
+      <div class="card day-card">
+        <h3 class="ct">Dia 4</h3>
+        <div class="meal"><span class="label">Café</span><span class="desc">Panqueca de aveia e banana</span></div>
+        <div class="meal"><span class="label">Almoço</span><span class="desc">Frango ao molho + purê de mandioquinha + salada</span></div>
+        <div class="meal"><span class="label">Lanche</span><span class="desc">Iogurte + sementes de chia</span></div>
+        <div class="meal"><span class="label">Jantar</span><span class="desc">Omelete com espinafre e tomate</span></div>
+      </div>
+      <div class="card day-card">
+        <h3 class="ct">Dia 5</h3>
+        <div class="meal"><span class="label">Café</span><span class="desc">Pão integral + pasta de amendoim + fruta</span></div>
+        <div class="meal"><span class="label">Almoço</span><span class="desc">Carne grelhada + arroz + legumes no vapor</span></div>
+        <div class="meal"><span class="label">Lanche</span><span class="desc">Smoothie de frutas vermelhas</span></div>
+        <div class="meal"><span class="label">Jantar</span><span class="desc">Salada completa com frango e grão-de-bico</span></div>
+      </div>
+
+      <div class="note">Dica: use esses 5 dias como base e repita, alternando a ordem, ao longo do mês. Isso já dá variedade suficiente sem precisar planejar do zero toda semana.</div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+    <hr class="divider">
+
+    <!-- ========== 4. LISTA INTELIGENTE DE COMPRAS ========== -->
+    <div class="product-section" id="lista-compras">
+      <div class="product-hero">
+        <div class="ic">🛒</div>
+        <h2>Lista Inteligente de Compras</h2>
+        <p>Leve essa lista pro mercado (ou tire print) e economize tempo — organizada por categoria, com o essencial pra seguir o protocolo sem desperdício.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">🥩 Proteínas</h3>
+        <div class="items">
+          <span class="item">Frango</span><span class="item">Carne moída</span><span class="item">Ovos</span>
+          <span class="item">Peixe</span><span class="item">Iogurte natural</span><span class="item">Queijo cottage</span>
+          <span class="item">Feijão</span><span class="item">Grão-de-bico</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="ct">🌾 Carboidratos</h3>
+        <div class="items">
+          <span class="item">Arroz</span><span class="item">Batata-doce</span><span class="item">Mandioca</span>
+          <span class="item">Aveia</span><span class="item">Pão integral</span><span class="item">Tapioca</span>
+          <span class="item">Arroz integral</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="ct">🥦 Vegetais e legumes</h3>
+        <div class="items">
+          <span class="item">Brócolis</span><span class="item">Espinafre</span><span class="item">Tomate</span>
+          <span class="item">Cenoura</span><span class="item">Alface</span><span class="item">Abobrinha</span>
+          <span class="item">Cebola</span><span class="item">Pepino</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="ct">🍎 Frutas</h3>
+        <div class="items">
+          <span class="item">Banana</span><span class="item">Maçã</span><span class="item">Frutas vermelhas</span>
+          <span class="item">Laranja</span><span class="item">Mamão</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="ct">🥜 Extras e temperos</h3>
+        <div class="items">
+          <span class="item">Castanhas</span><span class="item">Chia</span><span class="item">Pasta de amendoim</span>
+          <span class="item">Azeite</span><span class="item">Alho</span><span class="item">Ervas frescas</span>
+        </div>
+      </div>
+
+      <div class="note">Dica: compre proteínas e vegetais para 3-4 dias por vez, evitando estragar — e mantenha sempre 2-3 opções de carboidrato em casa para variar sem esforço.</div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+    <hr class="divider">
+
+    <!-- ========== 5. RECEITAS PARA CONTROLAR A FOME ========== -->
+    <div class="product-section" id="controlar-fome">
+      <div class="product-hero">
+        <div class="ic">🍲</div>
+        <h2>Receitas para Controlar a Fome</h2>
+        <p>Pratos ricos em proteína e fibra, que dão saciedade de verdade — pensados pra você não beliscar fora de hora.</p>
+      </div>
+
+      <div class="card recipe">
+        <h3 class="ct">Omelete recheada de saciedade</h3>
+        <div class="time">⏱ 10 min</div>
+        <p><b>Ingredientes:</b> 2 ovos, punhado de espinafre, 1 fatia de queijo branco, sal e temperos a gosto.</p>
+        <p><b>Modo de preparo:</b> Bata os ovos, misture o espinafre picado, despeje na frigideira antiaderente em fogo baixo. Adicione o queijo, dobre ao meio e sirva quente.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Sopa cremosa de legumes com frango</h3>
+        <div class="time">⏱ 25 min</div>
+        <p><b>Ingredientes:</b> Peito de frango desfiado, abóbora, cenoura, cebola, alho, caldo de legumes caseiro.</p>
+        <p><b>Modo de preparo:</b> Cozinhe os legumes até ficarem macios, bata parte no liquidificador para dar cremosidade, misture com o frango desfiado e aqueça por mais 5 minutos.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Salada completa com grão-de-bico</h3>
+        <div class="time">⏱ 12 min</div>
+        <p><b>Ingredientes:</b> Folhas verdes, grão-de-bico cozido, tomate cereja, pepino, azeite e limão.</p>
+        <p><b>Modo de preparo:</b> Misture tudo em uma tigela grande, tempere com azeite, limão e sal na hora de servir. O grão-de-bico é o segredo pra saciar por mais tempo.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Iogurte proteico com chia</h3>
+        <div class="time">⏱ 5 min</div>
+        <p><b>Ingredientes:</b> Iogurte natural, 1 colher de chia, canela a gosto.</p>
+        <p><b>Modo de preparo:</b> Misture a chia no iogurte e deixe descansar 10 minutos antes de comer — ela incha e ajuda a dar mais saciedade.</p>
+      </div>
+
+      <div class="note">Dica: refeições com proteína + fibra juntas são as que mais seguram a fome por mais tempo. Priorize essa combinação nos horários em que você costuma sentir mais vontade de beliscar.</div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+    <hr class="divider">
+
+    <!-- ========== 6. RECEITAS EXPRESS ========== -->
+    <div class="product-section" id="receitas-express">
+      <div class="product-hero">
+        <div class="ic">⚡</div>
+        <h2>Receitas Express</h2>
+        <p>Pra quando o dia não colabora: refeições saudáveis prontas em poucos minutos, sem desculpa pra pular refeição.</p>
+      </div>
+
+      <div class="card recipe">
+        <h3 class="ct">Wrap rápido de frango</h3>
+        <div class="time">⏱ 8 min</div>
+        <p><b>Ingredientes:</b> Tortilha integral, frango desfiado (pode ser sobra do dia anterior), alface, tomate, mostarda.</p>
+        <p><b>Modo de preparo:</b> Monte tudo na tortilha, enrole e está pronto. Ideal pra levar pro trabalho.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Panqueca de banana em 1 minuto no micro-ondas</h3>
+        <div class="time">⏱ 5 min</div>
+        <p><b>Ingredientes:</b> 1 banana amassada, 1 ovo, 2 colheres de aveia.</p>
+        <p><b>Modo de preparo:</b> Misture tudo, coloque em uma caneca ou prato fundo, leve ao micro-ondas por 1-2 minutos. Pronto.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Salada de atum instantânea</h3>
+        <div class="time">⏱ 5 min</div>
+        <p><b>Ingredientes:</b> 1 lata de atum, milho, tomate, folhas prontas (saco de salada), azeite.</p>
+        <p><b>Modo de preparo:</b> Misture tudo numa tigela. Zero fogão, zero louça extra.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Ovo mexido de caneca</h3>
+        <div class="time">⏱ 3 min</div>
+        <p><b>Ingredientes:</b> 2 ovos, sal, um fiozinho de leite (opcional).</p>
+        <p><b>Modo de preparo:</b> Bata na caneca, leve ao micro-ondas em intervalos de 30 segundos mexendo entre eles, até chegar no ponto.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Iogurte turbinado</h3>
+        <div class="time">⏱ 2 min</div>
+        <p><b>Ingredientes:</b> Iogurte natural, 1 fruta picada, um punhado de granola.</p>
+        <p><b>Modo de preparo:</b> Misture tudo. Pronto pra comer ou levar num potinho.</p>
+      </div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+    <hr class="divider">
+
+    <!-- ========== 7. DOCES FIT ========== -->
+    <div class="product-section" id="doces-fit">
+      <div class="product-hero">
+        <div class="ic">🍫</div>
+        <h2>Doces Fit</h2>
+        <p>Pra matar a vontade de doce sem sabotar sua semana. Sobremesas simples, com menos açúcar e mais ingredientes de verdade.</p>
+      </div>
+
+      <div class="card recipe">
+        <h3 class="ct">Brigadeiro fit de cacau</h3>
+        <p><b>Ingredientes:</b> 1 banana madura amassada, 2 colheres de cacau em pó 100%, 1 colher de pasta de amendoim.</p>
+        <p><b>Modo de preparo:</b> Misture tudo até virar uma pasta homogênea, enrole em bolinhas e leve à geladeira por 20 minutos.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Mousse de chocolate com abacate</h3>
+        <p><b>Ingredientes:</b> 1 abacate maduro, 2 colheres de cacau em pó, 1 colher de mel ou adoçante a gosto.</p>
+        <p><b>Modo de preparo:</b> Bata tudo no liquidificador até ficar cremoso. Leve à geladeira por 30 minutos antes de servir.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Cookies de aveia e banana</h3>
+        <p><b>Ingredientes:</b> 2 bananas amassadas, 1 xícara de aveia, canela a gosto, gotas de chocolate 70% (opcional).</p>
+        <p><b>Modo de preparo:</b> Misture tudo, molde em formato de biscoito numa assadeira, leve ao forno pré-aquecido a 180°C por 15-18 minutos.</p>
+      </div>
+      <div class="card recipe">
+        <h3 class="ct">Picolé de iogurte com frutas vermelhas</h3>
+        <p><b>Ingredientes:</b> Iogurte natural, frutas vermelhas (morango, amora), mel a gosto.</p>
+        <p><b>Modo de preparo:</b> Bata tudo no liquidificador, despeje em forminhas de picolé e leve ao freezer por pelo menos 4 horas.</p>
+      </div>
+
+      <div class="note">Dica: mesmo sendo "fit", esses doces ainda têm calorias — a ideia é ter uma opção melhor pra quando bater vontade, não comer sem limite.</div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+    <hr class="divider">
+
+    <!-- ========== 8. ORGANIZAÇÃO ALIMENTAR ========== -->
+    <div class="product-section" id="organizacao">
+      <div class="product-hero">
+        <div class="ic">🗂️</div>
+        <h2>Organização Alimentar</h2>
+        <p>Um sistema simples pra planejar a semana com antecedência — pra você nunca mais chegar na hora da fome sem saber o que comer.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">O sistema em 3 passos</h3>
+        <ol>
+          <li><b>Domingo (ou seu dia de folga):</b> escolha 5 combinações de refeição pra semana usando os Cardápios Inteligentes.</li>
+          <li><b>Faça a lista de compras</b> com base nessas escolhas, usando a Lista Inteligente de Compras como guia.</li>
+          <li><b>Deixe o básico pronto:</b> cozinhe arroz, feijão e uma proteína em maior quantidade — isso resolve 80% da semana em poucas horas de preparo.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">O que deixar pronto com antecedência</h3>
+        <ul>
+          <li>Proteínas grelhadas ou cozidas (frango, carne) em potes individuais</li>
+          <li>Legumes já lavados e cortados, prontos pra usar</li>
+          <li>Carboidrato base (arroz, batata-doce) já cozido</li>
+          <li>Lanches porcionados (castanhas, frutas já separadas)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="ct">Checklist semanal rápido</h3>
+        <ul>
+          <li>☐ Escolhi as refeições da semana</li>
+          <li>☐ Fiz a lista de compras</li>
+          <li>☐ Fui ao mercado</li>
+          <li>☐ Deixei o básico pronto (proteína + carboidrato)</li>
+          <li>☐ Separei os lanches da semana</li>
+        </ul>
+      </div>
+
+      <div class="note">Dica: reserve só 2 horas no fim de semana pra esse processo. É esse pequeno investimento de tempo que evita decisões ruins de última hora durante a semana corrida.</div>
+
+      <a class="back-top" href="#topo">↑ Voltar para todos os materiais</a>
+    </div>
+
+    <div class="dl-support">
+      <div class="ic">💬</div>
+      <p><b>Precisa de ajuda?</b> Se algo não abrir corretamente, entre em contato com o suporte que resolvemos rapidinho.</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
